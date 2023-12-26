@@ -2,31 +2,27 @@ import psycopg2
 import matplotlib.pyplot as plt
 
 username = 'postgres'
-password = '111'
-database = 'db_lab3'
+password = 'postgres'
+database = 'lab_3_6'
 host = 'localhost'
 port = '5432'
 
 query_1 = '''
--- Загальний рейтинг (weekly_rank) для фільму "Red Notice" за всі країни
-SELECT ac.show_title, ac.country_name, ag.weekly_rank FROM  all_weeks_countries ac
-JOIN all_weeks_global ag ON ac.show_title = ag.show_title
-WHERE ac.show_title = 'Red Notice'
+--Вибрати всі фільми
+SELECT * FROM MoviesAndShows;
 '''
 
 query_2 = '''
--- Кількість годин перегляду для кожного фільму в Аргентині
-SELECT ac.show_title, ac.country_name, mp.hours_viewed_first_28_days
-FROM  all_weeks_countries ac
-JOIN most_popular mp ON ac.show_title = mp.show_title
-WHERE ac.country_name = 'Argentina'
+--Вибрати всі країни
+SELECT * FROM Countries;
 '''
 
 query_3 = '''
--- Загальний рейтинг (weekly_rank) для фільму за всі країни
-SELECT ac.show_title, ac.country_name
-FROM all_weeks_countries ac
-JOIN all_weeks_global ag ON ac.show_title = ag.show_title
+--Вибрати всі рейтинги разом із назвою фільму/шоу та ім'ям країни
+SELECT MoviesAndShows.Title, Countries.CountryName, Ratings.Rank, Ratings.Viewership, Ratings.Duration
+FROM Ratings
+JOIN MoviesAndShows ON Ratings.MovieOrShowID = MoviesAndShows.MovieOrShowID
+JOIN Countries ON Ratings.CountryID = Countries.CountryID;
 '''
 
 conn = psycopg2.connect(user=username, password=password, dbname=database, host=host, port=port)
