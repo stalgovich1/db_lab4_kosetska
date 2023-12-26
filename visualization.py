@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 connection_params = {
     'user': 'postgres',
     'password': 'postgres',
-    'dbname': 'db_lab3',
+    'dbname': 'lab_3_6',
     'host': 'localhost',
     'port': '5432'
 }
