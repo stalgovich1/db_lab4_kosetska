@@ -44,15 +44,3 @@ VALUES
     (14, 5, 1, NULL, 1, 20050000, 1),
     (15, 9, 1, NULL, 2, 11470000, 1),
     (16, 8, 1, NULL, 3, 8660000, 3);
-
--- Вставка даних в таблицю most_popular
-INSERT INTO most_popular (Type, Rank, Title, Duration, Viewership)
-VALUES
-    ('Films (English)', 1, 'Red Notice', NULL, 364020000),
-    ('Films (English)', 2, 'Don''t Look Up', NULL, 359790000),
-    ('Films (English)', 3, 'Bird Box', NULL, 282020000),
-    ('Films (English)', 4, 'The Gray Man', NULL, 253830000),
-    ('Films (English)', 5, 'The Adam Project', NULL, 233160000),
-    ('Films (English)', 6, 'Extraction', NULL, 231340000),
-    ('Films (English)', 7, 'Purple Hearts', NULL, 220610000),
-    ('Films (English)', 8, 'The Unforgivable', NULL, 214700000);
